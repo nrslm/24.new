@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/mystyle.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <%- include('./part/header.ejs'); %>
+            <main>
+                <div>
+                    <h1>новости <%= category %>
+                    </h1>
+                    <!-- <h2>
+                        <%= title %>
+                    </h2>
+                    <p>
+                        <%= content %>
+                    </p> -->
+                    <% arr.forEach((element, i)=> { %>
+                        <% if(element.category===category) { %>
+                            <div class="news-box">
+                                <h1>
+                                    <a href=""><%= element.title %></a>
+                                </h1>
+        
+                                <h3>
+                                    <%= element.content %>
+                                </h3> 
+                            </div>
+                        <% } %>
+                    <% }); %>
+    
+                </div>
+            </main>
+            <%- include('./part/footer.ejs') %>
+    </div>
+</body>
+
+</html>
